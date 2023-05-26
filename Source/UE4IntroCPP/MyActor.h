@@ -34,4 +34,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void PostInitProperties() override;
+
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+
+	void CalculateValues();
 };

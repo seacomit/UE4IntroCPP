@@ -14,10 +14,15 @@ AMyActor::AMyActor() : TotalDamage(200), DamageTimeInSeconds(1.0f)
 	// DamageTimeInSeconds = 1.0f;
 }
 
-
 void AMyActor::PostInitProperties()
 {
 	Super::PostInitProperties();
+
+	CalculateValues();
+}
+
+void AMyActor::CalculateValues()
+{
 	DamagePerSecond = TotalDamage / DamageTimeInSeconds;
 }
 
@@ -35,3 +40,11 @@ void AMyActor::Tick(float DeltaTime)
 
 }
 
+#if WITH_EDITOR
+void AMyActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	CalculateValues();
+
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+}
+#endif
