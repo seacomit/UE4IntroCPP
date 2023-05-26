@@ -13,8 +13,14 @@ class UE4INTROCPP_API AMyActor : public AActor
 	
 public:	
 
-	UPROPERTY(EditAnywhere, Category="Damage")
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, Category="Damage")
 	int32 TotalDamage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Damage")
+	float DamageTimeInSeconds;
+
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Transient, Category = "Damage")
+	float DamagePerSecond;
 
 	// Sets default values for this actor's properties
 	AMyActor();
@@ -27,4 +33,5 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	virtual void PostInitProperties() override;
 };
