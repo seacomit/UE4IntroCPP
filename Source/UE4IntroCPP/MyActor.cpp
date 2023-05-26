@@ -40,6 +40,12 @@ void AMyActor::Tick(float DeltaTime)
 
 }
 
+// Used when the function is marked as BlueprintNativeEvent
+// void AMyActor::CalledFromCpp_Implementation()
+// {
+//   UE_LOG(LogTemp, Warning, TEXT("Called from C++"));
+// }
+
 #if WITH_EDITOR
 void AMyActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {

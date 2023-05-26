@@ -37,5 +37,13 @@ public:
 
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 
+	UFUNCTION(BlueprintCallable, Category = "Damage")
 	void CalculateValues();
+
+	// Alternatively
+	// UFUNCTION(BlueprintNativeEvent, Category = "Damage")
+	// In versions 4.8 and up, _Implementation is added to the end of the function name
+	UFUNCTION(BlueprintImplementableEvent, Category = "Damage")
+	void CalledFromCpp();
+
 };
